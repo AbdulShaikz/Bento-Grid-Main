@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+:root {
+  --clr-Purple100: #dacffc;
+  --clr-Purple500: #7650dc;
+  --clr-Yellow100: #f9eee1;
+  --clr-Yellow500: #ffcb6b;
+  --clr-White: #ffffff;
+  --clr-Black: #121212;
+
+  --ff-main: "DM Sans",serif;
+  --fs-body: 1.125rem;
+  --fs-heading: 1.75rem;
+
+  --fw-normal: 400;
+  --fw-semi-bold: 500;
+}
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    max-width: 80%;
+    display: block;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: var(--ff-main);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-normal);
+    line-height: 1.1;
+    color: var(--clr-Black);
+    background: #f9f9f9;
+    padding: 2rem 1rem;
+}
+
+.bento-grid-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 13rem 13rem 13rem;
+    grid-template-areas: 
+        'column1 column2 column3'
+        'column1 column2 column3'
+        'column1 column4 column4';
+    gap: 1rem;
+    max-width: 60rem;
+    margin-inline: auto;
+}
+
+.bento-grid-item > *, .inside-element{
+    display: grid;
+    gap: 1rem;
+}
+
+.bento-grid-item--element{
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.inside-element {
+    grid-template-columns: 1fr 1fr;
+}
+
+.inside-element:nth-child(1) {
+    grid-template-columns: .95fr 2fr;
+}
+
+
+.column1{
+    grid-area: column1;
+}
+.column2{
+    grid-area: column2;
+}
+.column3{
+    grid-area: column3;
+}
+.column4{
+    grid-area: column4;
+}
+
+.create{
+    background-color: var(--clr-Yellow100);
+}
+
+.content{
+    background-color: var(--clr-Yellow500);
+}
+
+.social{
+    background-color: var(--clr-Purple500);
+}
+
+.manage{
+    background-color: var(--clr-White);
+}
+
+.consistent{
+    background-color: var(--clr-Yellow500);
+}
+
+.media{
+    background-color: var(--clr-Purple100);
+}
+
+.audience{
+    background-color: var(--clr-White);
+}
+
+.grow{
+    background-color: var(--clr-Purple500);
+}
