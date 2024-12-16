@@ -29,10 +29,6 @@ img{
     display: block;
 }
 
-html{
-    font-size: 62.5%;
-}
-
 body{
     font-family: var(--ff-main);
     font-size: var(--fs-body);
@@ -43,20 +39,40 @@ body{
     padding: 2rem 1rem;
 }
 
+.grid{
+    display: grid;
+    gap: 1rem;
+}
+
+h1 {
+    font-size: 2.75rem;
+    font-weight: var(--fw-semi-bold);
+}
+
+h2 {
+    font-size: var(--fs-heading);
+    font-weight: var(--fw-semi-bold);
+    line-height: .9;
+}
+
+small {
+    font-size: var(--fs-body);
+}
+
 .bento-grid-container{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 13rem 13rem 13rem;
+    grid-template-rows: repeat(3, 13rem);
     grid-template-areas: 
-        'column1 column2 column3'
-        'column1 column2 column3'
-        'column1 column4 column4';
+        'column-one column-two column-three'
+        'column-one column-two column-three'
+        'column-one column-four column-four';
     gap: 1rem;
     max-width: 60rem;
     margin-inline: auto;
 }
 
-.bento-grid-item > *, .inside-element{
+.bento-grid-container > *, .inside-element{
     display: grid;
     gap: 1rem;
 }
@@ -75,47 +91,149 @@ body{
 }
 
 
-.column1{
-    grid-area: column1;
+.column-one{
+    grid-area: column-one;
 }
-.column2{
-    grid-area: column2;
+.column-two{
+    grid-area: column-two;
 }
-.column3{
-    grid-area: column3;
+.column-three{
+    grid-area: column-three;
 }
-.column4{
-    grid-area: column4;
+.column-four{
+    grid-area: column-four;
 }
 
 .create{
+    place-content: center;
+    padding: 2rem;
     background-color: var(--clr-Yellow100);
 }
 
 .content{
+    place-content: center;
+    padding: 1.5rem;
     background-color: var(--clr-Yellow500);
 }
 
 .social{
+    place-content: center;
+    color: var(--clr-White);
+    text-align: center;
     background-color: var(--clr-Purple500);
 }
 
+.social img{
+    max-width: 10rem;
+    margin-inline: auto;
+}
 .manage{
+    position: relative;
+    overflow: hidden;
     background-color: var(--clr-White);
 }
 
+.manage img{
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
 .consistent{
+    position: relative;
+    overflow: hidden;
     background-color: var(--clr-Yellow500);
 }
 
+.consistent img{
+    position: absolute;
+    bottom: -4rem;
+    left: 1.4rem;
+}
+
 .media{
+    place-content: center;
+    padding-left: 1.5rem;
+    overflow: hidden;
     background-color: var(--clr-Purple100);
 }
 
+.media img{
+    position: relative;
+    right: -1.5rem;
+    max-width: 100%;
+}
+
 .audience{
+    place-content: center;
     background-color: var(--clr-White);
 }
 
 .grow{
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+    color: var(--clr-White);
+    padding: 0;
     background-color: var(--clr-Purple500);
+}
+
+
+@media screen and (max-width: 950px) {
+    .bento-grid-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 13rem 13rem 13rem 13rem;
+        grid-template-areas: 
+            'column-two column-three'
+            'column-two column-three'
+            'column-four column-four'
+            'column-one column-one'
+        ;
+    }
+
+    .column-one {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .bento-grid-container{
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+            'column-two'
+            'column-three'
+            'column-four'
+            'column-one';
+    }
+    .bento-grid-container > *, .inside-element {
+        gap: 2rem;
+    }
+
+    .column-one{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .inside-element, .inside-element:nth-child(1), .column-one {
+        grid-template-columns: 1fr;
+    }
+
+    .manage img {
+        position: relative;
+        max-width: 80%;
+        margin-bottom: 1rem;
+    }
+
+    .consistent img{
+        position: relative;
+        bottom: -2rem;
+        left: 0;
+    }
+
+    .grow {
+        text-align: center;
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
 }
