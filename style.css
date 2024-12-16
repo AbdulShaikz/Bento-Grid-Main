@@ -135,6 +135,7 @@ small {
 
 .manage img{
     position: relative;
+    right: -1rem;
     max-width: 100%;
     margin-bottom: 1rem;
 }
@@ -211,6 +212,11 @@ small {
         gap: 2rem;
     }
 
+     .column-four .inside-element {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
     .column-one{
         grid-template-columns: 1fr 1fr;
     }
@@ -218,6 +224,7 @@ small {
     .inside-element, .inside-element:nth-child(1), .column-one {
         grid-template-columns: 1fr;
     }
+
 
     .manage img {
         position: relative;
